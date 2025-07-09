@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Time API Demo</title>
+</head>
+
+<body>
+
+
+    <h1>🕒 Timestamp actuel</h1>
+    <p id="timestamp">Chargement...</p>
+
+    <script>
+        fetch('http://' + /* En attente d'hébergement... */ + '/time/now', {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('timestamp').innerHTML = data.time;
+            });
+    </script>
+
+
+    <!-- ------------------------------------------------------------------------------------- -->
+
+
+    <h1>📆 Conversion de timestamp</h1>
+    <p id="convert">Chargement...</p>
+
+    <script>
+        fetch('http://' + /* En attente d'hébergement... */ + '/time/convert', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ timestamp: '1700000000', locale: 'fr', timezone: 'Europe/Paris' }) // Seul le timestamp est obligatoire
+        })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('convert').innerHTML = data.time;
+            });
+    </script>
+
+
+    <!-- ------------------------------------------------------------------------------------- -->
+
+
+    <h1>Fuseaux horaires (triés par heure locale)</h1>
+    <input type="text" id="search" placeholder="Rechercher un lieu...">
+    <button onclick="loadTimezones()">Rechercher</button>
+    <ul id="timezomeList"></ul>
+
+    <script>
+        function loadTimezones() {
+            const search = document.getElementById('search').value;
+            const url = `http://` + /* En attente d'hébergement... */ + `/time/timezone?locale=fr-FR${search ? `&search=${encodeURIComponent(search)}` : ''}`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    const list = document.getElementById('timezomeList');
+                    list.innerHTML = '';
+
+                    for (const timezome in data) {
+                        const { time, offset, localTimestamp } = data[timezome];
+                        const li = document.createElement('li');
+                        li.textContent = `${time} (${offset}) - ${localTimestamp} - ${timezome}`;
+                        list.appendChild(li);
+                    }
+
+                    if (Object.keys(data).length === 0) {
+                        list.innerHTML = '<li>Aucun résultat</li>';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('timezomeList').innerHTML = '<li>Erreur lors du chargement</li>';
+                });
+        }
+    </script>
+</body>
+
+</html>
