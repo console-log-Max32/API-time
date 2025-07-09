@@ -24,10 +24,10 @@ Multi-fuseaux, multi-langues, et pensée pour s’intégrer **partout**.
 ### 🕐 Récupérer le timestamp actuel en secondes
 
 ```js
-fetch('http://' + /* En attente d'hébergement... */ + '/time/now')
+fetch('http://' + /* En attente d'hébergement... */ + '/time/now')=
   .then(res => res.json())
   .then(data => {
-    console.log(data.time); // ex: 1700000000 (s)
+	console.log(data.time); // ex: 1700000000 (s)
   });
 ```
 
@@ -40,9 +40,9 @@ fetch('http://' + /* En attente d'hébergement... */ + '/time/convert', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    timestamp: 1700000000, // Attention a bien envoyer un timestamp en seconde et pas en millisecondes !
-    locale: 'fr',
-    timezone: 'Europe/Paris'
+	timestamp: 1700000000, // Attention à bien envoyer un timestamp en seconde et pas en millisecondes !
+	locale: 'fr',
+	timezone: 'Europe/Paris'
   })
 })
 .then(res => res.json())
@@ -59,10 +59,10 @@ fetch('http://' + /* En attente d'hébergement... */ + '/time/convert', {
 fetch('http://' + /* En attente d'hébergement... */ + '/time/timezone?search=europe&locale=fr-FR')
   .then(res => res.json())
   .then(data => {
-    for (const tz in data) {
-      const { time, offset, localTimestamp } = data[tz];
-      console.log(`${time} (${offset}) - ${localTimestamp} - ${tz}`);
-    }
+	for (const tz in data) {
+	  const { time, offset, localTimestamp } = data[tz];
+	  console.log(`${time} (${offset}) - ${localTimestamp} - ${tz}`);
+	}
   });
 ```
 
@@ -74,7 +74,7 @@ fetch('http://' + /* En attente d'hébergement... */ + '/time/timezone?search=eu
 
 | Champ       | Type   | Description                                             | Par défaut        |
 | ----------- | ------ | ------------------------------------------------------- | ----------------- |
-| `timestamp` | number | Timestamp Unix à convertir                              | — *(obligatoire)* |
+| `timestamp` | number | Timestamp Unix en seconde à convertir                   | — *(obligatoire)* |
 | `locale`    | string | Langue (`fr`, `en`, `de`, etc.)                         | `fr`              |
 | `timezone`  | string | Fuseau horaire (ex: `Europe/Paris`, `America/New_York`) | `Europe/Paris`    |
 
@@ -84,7 +84,7 @@ fetch('http://' + /* En attente d'hébergement... */ + '/time/timezone?search=eu
 
 | Paramètre | Type   | Description                                       | Par défaut        |
 | --------- | ------ | ------------------------------------------------- | ----------------- |
-| `search`  | string | Filtrer les fuseaux par nom (ex: `europe`, `paris`) | `""` (aucun)      |
+| `search`  | string | Filtrer les fuseaux par nom (ex: `europe`, `paris`) | `""` (aucun)    |
 | `locale`  | string | Langue de formatage (`fr-FR`, `en-US`, etc.)      | `fr-FR`           |
 
 ---
@@ -101,8 +101,8 @@ Un exemple complet est disponible dans [`timeApi.html`](./timeApi.html), incluan
 
 ## 🧠 À propos
 
-API développée pour être **ultra-lisible**, **sans dépendances** et **intégrable en 1 minute**.
-Aucune base de données. Aucun service tiers.
+API développée pour être **sans dépendances** et **intégrable en 1 minute**.
+Sans aucune base de données, ni aucun service tiers.
 
 ---
 
