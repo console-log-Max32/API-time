@@ -21,13 +21,13 @@ Multi-fuseaux, multi-langues, et pensée pour s’intégrer **partout**.
 
 ## 🚀 Exemples d’appel
 
-### 🕐 Récupérer le timestamp actuel
+### 🕐 Récupérer le timestamp actuel en secondes
 
 ```js
 fetch('http://' + /* En attente d'hébergement... */ + '/time/now')
   .then(res => res.json())
   .then(data => {
-    console.log(data.time); // ex: 1700000000
+    console.log(data.time); // ex: 1700000000 (s)
   });
 ```
 
@@ -40,7 +40,7 @@ fetch('http://' + /* En attente d'hébergement... */ + '/time/convert', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    timestamp: 1700000000,
+    timestamp: 1700000000, // Attention a bien envoyer un timestamp en seconde et pas en millisecondes !
     locale: 'fr',
     timezone: 'Europe/Paris'
   })
