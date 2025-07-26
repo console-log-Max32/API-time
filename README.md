@@ -115,6 +115,11 @@ Tu veux proposer une amélioration ? Discuter de l’intégration dans un projet
 
 ---
 
+## Vu total de nos API
+<img src='https://komarev.com/ghpvc/?username=console-log-Max32-API&style=for-the-badge'>
+
+---
+
 > 🛠️ Maintenu par des devs **passionnés & bénévoles**. Soyer compréhensif 🙏
 
 > Chatgpt nous as permis d'économiser du temps en rédigeant à notre place le fichier d'exemple (html) et le readme. Je pense que je n'apprends rien à personne en précisant que cet outil magique a encore besoin d'une supervision humaine.
