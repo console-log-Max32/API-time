@@ -24,7 +24,7 @@ Multi-fuseaux, multi-langues, et pensée pour s’intégrer **partout**.
 ### 🕐 Récupérer le timestamp actuel en secondes
 
 ```js
-fetch('http://' + /* En attente d'hébergement... */ + '/time/now')=
+fetch('http://' + '88.151.197.191:2025' + '/time/now')=
   .then(res => res.json())
   .then(data => {
 	console.log(data.time); // ex: 1700000000 (s)
@@ -36,7 +36,7 @@ fetch('http://' + /* En attente d'hébergement... */ + '/time/now')=
 ### 🔄 Convertir un timestamp en date lisible
 
 ```js
-fetch('http://' + /* En attente d'hébergement... */ + '/time/convert', {
+fetch('http://' + '88.151.197.191:2025' + '/time/convert', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -56,7 +56,7 @@ fetch('http://' + /* En attente d'hébergement... */ + '/time/convert', {
 ### 🌐 Récupérer la liste des fuseaux horaires triés
 
 ```js
-fetch('http://' + /* En attente d'hébergement... */ + '/time/timezone?search=europe&locale=fr-FR')
+fetch('http://' + '88.151.197.191:2025' + '/time/timezone?search=europe&locale=fr-FR')
   .then(res => res.json())
   .then(data => {
 	for (const tz in data) {
