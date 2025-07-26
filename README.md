@@ -15,7 +15,7 @@ Multi-fuseaux, multi-langues, et pensée pour s’intégrer **partout**.
 
 ## 🌐 Lien de l’API
 
-> En attente d’hébergement…
+> 88.151.197.191:2025
 
 ---
 
