@@ -13,7 +13,7 @@
     <p id="timestamp">Chargement...</p>
 
     <script>
-        fetch('http://' + /* En attente d'hébergement... */ + '/time/now', {
+        fetch('http://' + '88.151.197.191:2025' + '/time/now', {
             method: 'GET',
         })
             .then(res => res.json())
@@ -30,7 +30,7 @@
     <p id="convert">Chargement...</p>
 
     <script>
-        fetch('http://' + /* En attente d'hébergement... */ + '/time/convert', {
+        fetch('http://' + '88.151.197.191:2025' + '/time/convert', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ timestamp: '1700000000', locale: 'fr', timezone: 'Europe/Paris' }) // Seul le timestamp est obligatoire
@@ -53,7 +53,7 @@
     <script>
         function loadTimezones() {
             const search = document.getElementById('search').value;
-            const url = `http://` + /* En attente d'hébergement... */ + `/time/timezone?locale=fr-FR${search ? `&search=${encodeURIComponent(search)}` : ''}`;
+            const url = `http://` + '88.151.197.191:2025' + `/time/timezone?locale=fr-FR${search ? `&search=${encodeURIComponent(search)}` : ''}`;
 
             fetch(url)
                 .then(res => res.json())
